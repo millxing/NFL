@@ -571,30 +571,32 @@
 
         /* Home field advantage display */
         .hfa-display {
-            margin-top: var(--space-lg);
-            padding: var(--space-lg);
+            margin-top: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
             background: var(--color-bg-tertiary);
             border-radius: var(--radius-md);
-            text-align: center;
+            display: inline-block;
+            font-size: 0.875rem;
         }
 
         .hfa-display__label {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             color: var(--color-text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: var(--space-xs);
+            letter-spacing: 0.05em;
+            display: inline;
+            margin-right: var(--space-sm);
         }
 
         .hfa-display__value {
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: 1.125rem;
             font-weight: 700;
             color: var(--color-accent-secondary);
         }
 
         .hfa-display__unit {
-            font-size: 1rem;
+            font-size: 0.875rem;
             color: var(--color-text-muted);
             margin-left: var(--space-xs);
         }
@@ -681,13 +683,65 @@
                 padding: var(--space-lg);
             }
 
-            .results-table th,
-            .results-table td {
-                padding: var(--space-sm) var(--space-md);
+            .results-table {
+                font-size: 0.8125rem;
             }
 
+            .results-table th,
+            .results-table td {
+                padding: var(--space-xs) var(--space-sm);
+            }
+
+            .results-table th {
+                font-size: 0.625rem;
+            }
+
+            /* Hide team abbreviation badge on mobile */
             .team-cell__abbr {
                 display: none;
+            }
+
+            /* Make team names more compact on mobile */
+            .team-cell {
+                font-size: 0.8125rem;
+                min-width: 100px;
+            }
+
+            /* Reduce rank column width */
+            .rank-cell {
+                width: 35px;
+                font-size: 0.875rem;
+            }
+
+            /* Reduce record columns width */
+            .record-cell {
+                width: 35px;
+                font-size: 0.8125rem;
+                padding: var(--space-xs) 2px;
+            }
+
+            /* Ensure rating column stays visible */
+            .rating-cell {
+                font-size: 0.9375rem;
+                white-space: nowrap;
+            }
+
+            /* Make HFA display even more compact on mobile */
+            .hfa-display {
+                font-size: 0.75rem;
+                padding: var(--space-xs) var(--space-sm);
+            }
+
+            .hfa-display__label {
+                font-size: 0.625rem;
+            }
+
+            .hfa-display__value {
+                font-size: 0.9375rem;
+            }
+
+            .hfa-display__unit {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -703,7 +757,7 @@
         <header class="header">
             <h1 class="header__title">NFL Power Ratings</h1>
             <p class="header__subtitle">
-                NFL Power Ratings Calculator based on Point Differential & Strength of Schedule
+                Ratings based on point differential and strength of schedule
             </p>
         </header>
 
@@ -787,11 +841,9 @@
 
             <!-- Home Field Advantage Display -->
             <div class="hfa-display">
-                <div class="hfa-display__label">Home Field Advantage</div>
-                <div>
-                    <span id="hfa-value" class="hfa-display__value">0.0</span>
-                    <span class="hfa-display__unit">points</span>
-                </div>
+                <span class="hfa-display__label">Home Field Advantage:</span>
+                <span id="hfa-value" class="hfa-display__value">0.0</span>
+                <span class="hfa-display__unit">points</span>
             </div>
         </section>
 
